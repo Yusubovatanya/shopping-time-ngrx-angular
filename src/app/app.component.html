@@ -1,0 +1,43 @@
+<div class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
+    <a class="navbar-brand" href="#">SHOPPING TIME</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    <ul class="navbar-nav ml-auto mt-2 mt-lg-0 nav_icon">
+      <li class="nav-item">
+          <a class="nav-link"> <i class="material-icons">person</i></a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link"><i class="material-icons">shopping_basket</i></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link"><i class="fa fa-facebook"></i></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link"><i class="fa fa-twitter"></i></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link"><i class="fa fa-instagram"></i></a>
+      </li>
+    </ul>
+
+  </div>
+<div class="container wrapper py-4">
+  <div *ngIf="error$ | async">
+    <div class="alert alert-danger" role="alert">
+      <h3 class="text-center">Error {{(error$ | async).status}}! </h3>
+    </div>
+  </div>
+
+  <div [ngClass]="{'edit_opacity': isEditId}" id="shopping-list" *ngIf="!(error$ | async); else error">
+    <h1 class="text-center py-2 animated infinite pulse delay-2s">IT'S Shopping TIME !</h1>
+
+    <div class="card my-3 p-3">
+      <app-form-add-item></app-form-add-item>
+    </div>
+
+    <app-item-list [shoppingItems]="shoppingItems$ | async"></app-item-list>
+  </div>
+  <app-form *ngIf="isEditId" [shoppingItem]="editId" class="edit_form">
+  </app-form>
+</div>

@@ -1,0 +1,21 @@
+<form (ngSubmit)="addItem()" class="my-3">
+  <div *ngIf="isShowAlert" class="alert alert_msg p-2 text-center"
+    [ngClass]="{'alert-success': msg.result,'alert-danger': !msg.result}" role="alert">{{msg.text}}</div>
+
+  <div class="row justify-content-between">
+    <div class="col-md-2">
+      <input type="text" [(ngModel)]="newShoppingItem.name" placeholder="Title" name="itemName"
+        class="form-control mr-4">
+    </div>
+    <div class="col-md-4">
+      <input type="text" [(ngModel)]="newShoppingItem.img" placeholder="Img" name="itemImg" class="form-control mr-4">
+    </div>
+    <div class="col-md-5">
+      <input type="text" [(ngModel)]="newShoppingItem.description" placeholder="ItemDescription" name="itemDescription"
+        class="form-control mr-4">
+    </div>
+    <div class="col-md-1">
+      <button class="btn btn-dark" type="submit">Add</button>
+    </div>
+  </div>
+</form>

@@ -1,0 +1,21 @@
+<div class="card shadow-sm my-4">
+  <div class="img_card" [ngStyle]="{
+    'background': 'url(' + shopping.img + ') no-repeat',
+    'height': '225px',
+    'background-size': 'cover',
+    'background-position-x': 'center',
+    'background-position-y': 'top'
+  }"></div>
+  <div class="card-body">
+    <h5 class="card-title">{{shopping.name}}</h5>
+    <div class="card_description mb-3">
+      <p class="card-text card_description-text">{{shopping.description}}.</p>
+    </div>
+    <div class="d-flex justify-content-between">
+      <div class="btn-group">
+        <button class="btn btn-danger" (click)="deleteItem($event)">Delete</button>
+        <button class="btn btn-secondary" (click)="editItem($event)">Edit</button>
+      </div>
+    </div>
+  </div>
+</div>
